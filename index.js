@@ -1,9 +1,17 @@
-const petSurveyForm = document.querySelector('#survey');
-const petSurveyResults = document.querySelector('.results')
-const submitButton = document.querySelector('#submit-survey');
 
 
-dogUrl = 'http://localhost:3000/dogs'
+
+let dogUrl;
+    const queryParams = new URLSearchParams(window.location.search);
+    const search = queryParams.get('search');
+    
+    if(search) {
+        dogUrl = `http://localhost:3000/dogs?search=${search}`
+    }
+    else { 
+        dogUrl = "http://localhost:3000/dogs"
+    }
+
 fetch(dogUrl)
 .then(response => response.json())
 .then(displayDogs)
@@ -25,7 +33,7 @@ function displayDogCard(dog){
     
     const dogTemperament = document.createElement('p');
     dogTemperament.textContent = "Temperament: " + dog.temperament;
-    console.log(dog.image)
+    
 
     const dogWeight = document.createElement('p');
     dogWeight.textContent = "Weight: " + dog.weight + "lbs.";
@@ -37,20 +45,48 @@ function displayDogCard(dog){
     dogContainer.append(dogCard);
     document.body.append(dogContainer);
 
+    // search(dog);
+
 }
 
-function login(){
-    const loginForm = document.querySelector('#login-form')
+function searchDogs(dog) { 
+    const $li = createElement("li")
+    $li.innerHTML = `<a href=show.html?id=${dog.id}>${dog.name}</a>`
+    dog.append($li)
+}  
+
+// userURL = 'http://localhost:3000/users'
+// fetch(userURL)
+// .then(response => response.json())
+// .then(login)
+
+
+
+    const loginForm = document.querySelector('#login-form');
     const submitLoginButton = document.querySelector('.submit')
+    console.log(loginForm)
 
-    submitLoginButton.addEventListener("submit", (event) => {
+    loginForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        const formData = new FormData()
+        const formData = new FormData(event.target)
+        const username = formData.get('username')
+        const email = formData.get('email')
+        const password = formData.get('password')
+        
+            
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {'Content-Type': 'Application/Json'},
+            body: JSON.stringify({ username, email, password })
+        }).then(() => {
+            window.location.reload()
+        })
     })
-}
 
 
-
+// const petSurveyForm = document.querySelector('#survey');
+// const petSurveyResults = document.querySelector('.results')
+// const submitButton = document.querySelector('#submit-survey');
 // function newDogs(dogs){
 //     let newDogsTemp = dogs.map(dog => {
 //         if (dog.temperment){
