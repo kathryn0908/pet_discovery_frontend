@@ -5,7 +5,7 @@ body {
     background: #0ca3d2;
   }
 
-  #title {
+  .title {
     margin: 74px;
     color: white;
     font-size: -webkit-xxx-large;

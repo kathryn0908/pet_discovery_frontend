@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="user_login.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+    <title>User Login</title>
+
+</head>
+<body>
+    <header>
+        <a id="link" href="http://localhost:3001/index.html">Home</a>
+        <a id="link" href="http://localhost:3001/user_likes.html">User Likes Page</a>
+
+        <h1 class="title">Pet Discovery User Login</h1>
+        <p class="is-logged-in">You are not logged in!</p>
+    </header>
+    <div class="login">
+        <h1>Pet Discovery Login</h1>
+        <form id="login-form">
+          <p><input type="text" name="username" placeholder="Username"></p>
+          <p><input type="password" name="password" placeholder="Password"></p>
+          <p class="submit"><input type="submit" value="Login" placeholder="login"></p>
+          <p class="submit" id="logout-button"><input type="submit" value="Logout" placeholder="logout"></p>
+        </form>
+      </div>
+      <p class="title">Not a current User? Sign Up!</p>
+      <div class="login">
+        <h1>Pet Discovery Sign Up!</h1>
+        <form id="signup-form">
+          <p><input type="text" name="username" placeholder="Username"></p>
+          <p><input type="password" name="password" placeholder="Password"></p>
+          <p class="submit" id="signup-submit"><input type="submit" value="Create Account"></p>
+        </form>
+      </div>
+    
+</body>
+</html>
