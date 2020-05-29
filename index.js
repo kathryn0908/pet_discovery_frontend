@@ -18,6 +18,7 @@ fetch(dogUrl)
 
 function displayDogs(dogs){
     dogs.forEach(dog => {displayDogCard(dog)})
+    createNewFavorite(dogs);
 }
 
 function displayDogCard(dog){
@@ -33,7 +34,6 @@ function displayDogCard(dog){
     
     const dogTemperament = document.createElement('p');
     dogTemperament.textContent = "Temperament: " + dog.temperament;
-    
 
     const dogWeight = document.createElement('p');
     dogWeight.textContent = "Weight: " + dog.weight + "lbs.";
@@ -42,8 +42,10 @@ function displayDogCard(dog){
     dogLifeSpan.textContent = "Life Span: " + dog.life_span;
 
     const likeButton = document.createElement('button')
+    likeButton.dataset.dog = dog.id
+   
     likeButton.textContent = "Like"
-    
+    likeButton.className = 'like-button'
 
     dogCard.append(dogImage, dogName, dogTemperament, dogWeight, dogLifeSpan, likeButton);
     
@@ -59,3 +61,59 @@ function searchDogs(dog) {
     dog.append($li)
 }  
 
+
+
+// const backendUrl = 'http://localhost:3000';
+
+// fetch(`${backendUrl}/users`, {
+//             headers: {
+//                 "Authorization": `Bearer ${localStorage.getItem('token') }`
+//             }
+//         })
+//     .then(response => response.json())
+//     .then(favorite)
+
+// function favorite(user){
+//     createNewFavorite(user)
+// }
+
+function createNewFavorite(dog, user){
+    const likeButtons = document.querySelectorAll('.like-button')
+    
+  
+    const backendUrl = 'http://localhost:3000';
+    const likeButton = document.createElement('button')
+    
+likeButtons.forEach(likeButton => {
+    
+    likeButton.addEventListener("click", (event) => {
+    
+            const dog_id = likeButton.dataset.dog
+            const user_id = localStorage.getItem('token')
+            console.log(localStorage.getItem(user.id))
+
+
+        fetch(`${backendUrl}/favorites`, {
+            method: 'POST',
+            headers: {
+                    'Content-Type': 'Application/Json',
+                    "Authorization": `Bearer ${localStorage.getItem('token') }`
+                },
+            body: JSON.stringify({ favorite: { dog_id, user_id } })
+            })
+        })
+    })
+}
+
+
+
+
+// function getUsers(){
+//     fetch(`${backendUrl}/users`, {
+//         headers: {
+//             "Authorization": `Bearer ${localStorage.getItem('token') }`
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(console.log)
+// }

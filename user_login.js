@@ -8,7 +8,6 @@ const logoutButton = document.querySelector('#logout-button')
 
 
 
-
 signUpForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(event.target)
@@ -53,7 +52,7 @@ function LoggedIn(){
 
 logoutButton.addEventListener('click', (event) => {
     logout();
-    isLoggedIn();
+    LoggedIn();
 })
 
 function logout(){

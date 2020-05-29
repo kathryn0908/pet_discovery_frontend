@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="index.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+        </style>
+    <div id="link-container">
+        <a id="link" href="http://localhost:3001/user_likes.html">User Likes Page</a>
+        <a id="link" href="http://localhost:3001/user_login.html">Sign Up or Login Here!</a>
+        <a id="link" href="https://www.petfinder.com/">Find Pets Available for Adoption Here!</a>
+    </div>
     <title>Find a Pet</title>
 </head>
 <body>
     <header>
         <h1 class="title">Pet Discovery</h1>
-        <a id="link" href="http://localhost:3001/user_login.html">Sign Up or Login Here!</a>
     </header>
-
-    <form action="http://localhost:3001/dogs" method="GET" >  
-        <input type="text" class="search-dogs" placeholder="Search" name="search">
-        <button type="submit">Search</button></form>
-
-       
-    <a id="link" href="https://www.petfinder.com/">Find Pets Available for Adoption Here!</a>
-   
-       <section id = "dog-container"> </section>
+<div id="search-container">
+    <form  action="http://localhost:3001/dogs" method="GET" >  
+        <input id="search" type="text"  placeholder="Search" name="search">
+        <button id="search-button" type="submit">Search</button></form>
+    </div>
+       <section id = "dog-container"> 
+          
+       </section>
                  
     
 </body>

@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="user_login.js" defer></script>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="user_login.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+      </style>
+       <div id="link-container">
+        <a id="link" href="http://localhost:3001/index.html">Home</a>
+        <a id="link" href="http://localhost:3001/user_likes.html">User Likes Page</a>
+        <a id="link" href="https://www.petfinder.com/">Find Pets Available for Adoption Here!</a>
+      </div>
     <title>User Login</title>
 
 </head>
 <body>
     <header>
-        <a id="link" href="http://localhost:3001/index.html">Home</a>
-        <a id="link" href="http://localhost:3001/user_likes.html">User Likes Page</a>
-
         <h1 class="title">Pet Discovery User Login</h1>
-        <p class="is-logged-in">You are not logged in!</p>
+        <div class="is-logged-in-container">
+        <p class="is-logged-in">You're not Logged In!</p>
+      </div>
     </header>
     <div class="login">
         <h1>Pet Discovery Login</h1>
